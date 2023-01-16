@@ -1,6 +1,25 @@
-import "@/styles/globals.css";
 import type { AppProps } from "next/app";
+import { kumbhSansFont } from "@/utils/font-family.utils";
+import "@/styles/index.scss";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      {/* eslint-disable-next-line react/no-unknown-property */}
+      <style jsx global>
+        {`
+          html {
+            --kumbh-sans-font: ${kumbhSansFont.style.fontFamily};
+          }
+
+          #__next {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          }
+        `}
+      </style>
+      <Component {...pageProps} />
+    </>
+  );
 }
