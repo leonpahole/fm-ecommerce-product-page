@@ -3,3 +3,9 @@
 @use "./breakpoints.scss";
 
 $kumbh-sans-font: var(--kumbh-sans-font);
+
+@mixin text-1 {
+  font-weight: 400;
+  font-size: sizes.px(15);
+  line-height: sizes.px(26);
+}

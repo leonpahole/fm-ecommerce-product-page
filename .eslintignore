@@ -6,3 +6,4 @@ public
 package.json
 README.md
 .eslintrc.json
+tsconfig.json

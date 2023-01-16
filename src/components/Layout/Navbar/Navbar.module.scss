@@ -1,0 +1,47 @@
+@use "../../../styles/theme/sizes.scss";
+@use "../../../styles/theme/typography.scss";
+@use "../../../styles/theme/colors.scss";
+
+.wrapper {
+  margin: 0 auto;
+  padding: 28px 24px 34px 24px;
+
+  width: 100%;
+  max-width: sizes.px(1110);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid colors.$grey-2;
+
+  .left {
+    display: flex;
+
+    .logoLink {
+      margin-right: 40px;
+    }
+
+    .linkList {
+      display: flex;
+      list-style-type: none;
+
+      .link {
+        padding: 0 16px;
+        @include typography.text-1;
+        color: colors.$grey-1;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+
+    .imgLink {
+      padding: 8px;
+      margin-right: 36px;
+    }
+  }
+}
