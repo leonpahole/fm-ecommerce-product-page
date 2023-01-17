@@ -1,0 +1,86 @@
+@use "../../../../styles/theme/sizes.scss";
+@use "../../../../styles/theme/typography.scss";
+@use "../../../../styles/theme/colors.scss";
+@use "../../../../styles/theme/breakpoints.scss";
+
+.menuButton {
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.wrapper {
+  position: fixed;
+  z-index: 2;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  max-width: sizes.px(250);
+  width: 100%;
+
+  transform: translateX(-100%);
+  transition: transform 0.1s ease-in;
+
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
+
+  background: colors.$white;
+
+  padding: 15px 25px 25px 15px;
+
+  &.isOpen {
+    transform: translateX(0);
+  }
+
+  .closeButton {
+    padding: 10px;
+
+    box-sizing: content-box;
+    cursor: pointer;
+  }
+
+  .linkList {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    margin-top: 39px;
+    list-style: none;
+    padding: 0;
+    padding-left: 10px;
+
+    .link {
+      @include typography.text-2;
+
+      display: block;
+      padding: 5px 0;
+      text-decoration: none;
+      color: colors.$dark-1;
+    }
+  }
+}
+
+.overlay {
+  z-index: 1;
+
+  background: colors.$black;
+  mix-blend-mode: normal;
+  opacity: 0.75;
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: none;
+
+  &.isOpen {
+    display: block;
+  }
+}

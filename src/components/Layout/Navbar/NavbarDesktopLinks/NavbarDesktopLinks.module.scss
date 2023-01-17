@@ -1,0 +1,24 @@
+@use "../../../../styles/theme/sizes.scss";
+@use "../../../../styles/theme/typography.scss";
+@use "../../../../styles/theme/colors.scss";
+@use "../../../../styles/theme/breakpoints.scss";
+
+.wrapper {
+  display: none;
+  @include breakpoints.md {
+    display: initial;
+  }
+
+  .linkList {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+
+    .link {
+      padding: 0 16px;
+      @include typography.text-1;
+      color: colors.$grey-1;
+      text-decoration: none;
+    }
+  }
+}

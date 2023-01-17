@@ -1,10 +1,15 @@
 @use "../../../styles/theme/sizes.scss";
 @use "../../../styles/theme/typography.scss";
 @use "../../../styles/theme/colors.scss";
+@use "../../../styles/theme/breakpoints.scss";
 
 .wrapper {
   margin: 0 auto;
-  padding: 28px 24px 34px 24px;
+  padding: 19px 24px 25px 24px;
+
+  @include breakpoints.md {
+    padding: 28px 24px 34px 24px;
+  }
 
   width: 100%;
   max-width: sizes.px(1110);
@@ -19,18 +24,10 @@
     display: flex;
 
     .logoLink {
-      margin-right: 40px;
-    }
+      margin-right: 20px;
 
-    .linkList {
-      display: flex;
-      list-style-type: none;
-
-      .link {
-        padding: 0 16px;
-        @include typography.text-1;
-        color: colors.$grey-1;
-        text-decoration: none;
+      @include breakpoints.md {
+        margin-right: 40px;
       }
     }
   }
@@ -39,9 +36,9 @@
     display: flex;
     align-items: center;
 
-    .imgLink {
-      padding: 8px;
-      margin-right: 36px;
+    gap: 22px;
+    @include breakpoints.md {
+      gap: 36px;
     }
   }
 }
