@@ -1,0 +1,27 @@
+@use "../../../styles/theme/typography.scss";
+@use "../../../styles/theme/colors.scss";
+@use "../../../styles/theme/sizes.scss";
+
+.button {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  padding: 19px 26px;
+  @include typography.text(16, 20, 700);
+
+  color: colors.$white;
+  background-color: colors.$primary;
+
+  box-shadow: 0px 20px 50px -20px colors.$primary;
+  border-radius: 10px;
+
+  &[disabled="disabled"],
+  &:disabled {
+    background-color: colors.$grey-3;
+    box-shadow: 0px 20px 50px -20px colors.$grey-3;
+  }
+}

@@ -1,4 +1,4 @@
-import { StaticImageData } from "next/image";
+import { ImageModels } from "./image.models";
 
 export namespace ProductModels {
   export interface Product {
@@ -7,10 +7,11 @@ export namespace ProductModels {
     name: string;
     description: string;
     currentPrice: number;
+    currency: string;
     discount: {
       originalPrice: number;
       percent: number;
     } | null;
-    images: { thumbnail: StaticImageData; fullSize: StaticImageData }[];
+    images: ImageModels.Image[];
   }
 }

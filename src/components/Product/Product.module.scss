@@ -1,0 +1,8 @@
+@use "../../styles/theme/typography.scss";
+@use "../../styles/theme/colors.scss";
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 125px;
+}

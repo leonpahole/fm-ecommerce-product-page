@@ -52,7 +52,7 @@
     padding-left: 10px;
 
     .link {
-      @include typography.text-2;
+      @include typography.text(18, 26, 400);
 
       display: block;
       padding: 5px 0;

@@ -1,0 +1,27 @@
+@use "../../../styles/theme/typography.scss";
+@use "../../../styles/theme/colors.scss";
+@use "../../../styles/theme/sizes.scss";
+
+.wrapper {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+  background: colors.$grey-4;
+
+  padding: 14px 8px;
+
+  .button {
+    padding: 8px;
+  }
+
+  .value {
+    @include typography.text(16, 20, 700);
+    color: colors.$dark-1;
+    width: sizes.px(85);
+    text-align: center;
+  }
+}

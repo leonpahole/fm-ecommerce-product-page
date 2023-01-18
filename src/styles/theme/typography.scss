@@ -4,14 +4,8 @@
 
 $kumbh-sans-font: var(--kumbh-sans-font);
 
-@mixin text-1 {
-  font-weight: 400;
-  font-size: sizes.px(15);
-  line-height: sizes.px(26);
-}
-
-@mixin text-2 {
-  font-weight: 700;
-  font-size: sizes.px(18);
-  line-height: sizes.px(26);
+@mixin text($fontSizePx, $lineHeightPx, $fontWeight) {
+  font-weight: $fontWeight;
+  font-size: sizes.px($fontSizePx);
+  line-height: sizes.px($lineHeightPx);
 }

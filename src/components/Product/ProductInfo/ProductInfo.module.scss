@@ -1,0 +1,70 @@
+@use "../../../styles/theme/typography.scss";
+@use "../../../styles/theme/colors.scss";
+
+.infoWrapper {
+  flex: 1;
+
+  .company {
+    @include typography.text(13, 16, 700);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: colors.$primary;
+  }
+
+  .name {
+    @include typography.text(44, 48, 700);
+    margin-top: 27px;
+    color: colors.$dark-1;
+  }
+
+  .description {
+    @include typography.text(16, 26, 400);
+    margin-top: 32px;
+    color: colors.$grey-1;
+  }
+
+  .priceWrapper {
+    margin-top: 28px;
+
+    .currentPriceWrapper {
+      display: flex;
+
+      .currentPrice {
+        @include typography.text(28, 26, 700);
+        color: colors.$dark-1;
+
+        margin-right: 16px;
+      }
+
+      .discountPercent {
+        border-radius: 6px;
+        padding: 7px 8px 4px 8px;
+
+        background-color: colors.$primary-light;
+        color: colors.$primary;
+
+        @include typography.text(16, 20, 700);
+      }
+    }
+
+    .originalPrice {
+      margin-top: 10px;
+      text-decoration: line-through;
+
+      color: colors.$grey-3;
+
+      @include typography.text(16, 26, 700);
+    }
+  }
+
+  .purchaseWrapper {
+    margin-top: 32px;
+    display: flex;
+    gap: 16px;
+
+    .quantityInput {
+      flex-shrink: 0;
+      width: auto;
+    }
+  }
+}

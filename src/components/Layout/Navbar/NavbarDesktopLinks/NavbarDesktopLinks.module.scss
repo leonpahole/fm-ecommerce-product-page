@@ -16,7 +16,7 @@
 
     .link {
       padding: 0 16px;
-      @include typography.text-1;
+      @include typography.text(15, 26, 400);
       color: colors.$grey-1;
       text-decoration: none;
     }
