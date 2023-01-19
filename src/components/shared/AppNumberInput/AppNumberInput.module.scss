@@ -16,6 +16,15 @@
 
   .button {
     padding: 8px;
+
+    &[disabled="disabled"],
+    &:disabled {
+      pointer-events: none;
+    }
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 
   .value {

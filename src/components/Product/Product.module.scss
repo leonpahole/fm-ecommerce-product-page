@@ -1,8 +1,15 @@
 @use "../../styles/theme/typography.scss";
+@use "../../styles/theme/breakpoints.scss";
 @use "../../styles/theme/colors.scss";
 
 .wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 125px;
+  align-items: center;
+  gap: 28px;
+
+  @include breakpoints.lg {
+    flex-direction: row;
+  }
 }

@@ -1,6 +1,9 @@
 import type { AppProps } from "next/app";
 import { kumbhSansFont } from "@/utils/font-family.utils";
+import Modal from "react-modal";
 import "@/styles/index.scss";
+
+Modal.setAppElement("#modals");
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

@@ -1,0 +1,36 @@
+@use "../../../../styles/theme/typography.scss";
+@use "../../../../styles/theme/colors.scss";
+@use "../../../../styles/theme/sizes.scss";
+@use "../../../../styles/theme/breakpoints.scss";
+
+$arrow-button-size: 56;
+
+.arrowButton {
+  position: absolute;
+
+  width: sizes.px($arrow-button-size);
+  height: sizes.px($arrow-button-size);
+
+  border-radius: 50%;
+  background-color: colors.$white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  top: 0;
+  bottom: 0;
+
+  margin: auto;
+
+  &.arrowButtonLeft {
+    left: sizes.px(-$arrow-button-size / 2);
+  }
+
+  &.arrowButtonRight {
+    right: sizes.px(-$arrow-button-size / 2);
+  }
+
+  img {
+    display: block;
+  }
+}

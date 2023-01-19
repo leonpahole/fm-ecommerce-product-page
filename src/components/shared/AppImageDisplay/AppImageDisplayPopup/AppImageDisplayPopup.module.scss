@@ -1,0 +1,54 @@
+@use "../../../../styles/theme/typography.scss";
+@use "../../../../styles/theme/colors.scss";
+@use "../../../../styles/theme/sizes.scss";
+@use "../../../../styles/theme/breakpoints.scss";
+@use "../AppImageDisplayArrows/AppImageDisplayArrows.module.scss" as arrows;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba($color: colors.$black, $alpha: 0.75);
+  mix-blend-mode: normal;
+
+  @include breakpoints.lg {
+    display: flex;
+  }
+
+  .modal {
+    position: absolute;
+
+    .wrapper {
+      .selectedImageWrapper {
+        width: sizes.px(550);
+        aspect-ratio: 1;
+        position: relative;
+
+        .selectedImage {
+          border-radius: 15px;
+        }
+
+        .arrowButtonLeft {
+          left: sizes.px(arrows.$arrow-button-size / -2);
+        }
+
+        .arrowButtonRight {
+          right: sizes.px(arrows.$arrow-button-size / -2);
+        }
+      }
+
+      .thumbnailList {
+        margin-top: 40px;
+        gap: 32px;
+        justify-content: center;
+      }
+    }
+  }
+}

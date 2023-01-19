@@ -1,8 +1,15 @@
 @use "../../../styles/theme/sizes.scss";
+@use "../../../styles/theme/breakpoints.scss";
 
 .main {
-  padding: 90px 48px;
+  padding: 0;
+  padding-bottom: 24px;
+
   max-width: sizes.px(1015);
   width: 100%;
   margin: 0 auto;
+
+  @include breakpoints.lg {
+    padding: 90px 24px;
+  }
 }

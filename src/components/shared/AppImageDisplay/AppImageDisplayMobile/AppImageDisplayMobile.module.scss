@@ -1,0 +1,24 @@
+@use "../../../../styles/theme/breakpoints.scss";
+@use "../../../../styles/theme/sizes.scss";
+
+.wrapper {
+  width: 100%;
+  height: sizes.px(300);
+  position: relative;
+
+  @include breakpoints.lg {
+    display: none;
+  }
+
+  .primaryImage {
+    object-fit: cover;
+  }
+
+  .arrowButtonLeft {
+    left: 16px;
+  }
+
+  .arrowButtonRight {
+    right: 16px;
+  }
+}

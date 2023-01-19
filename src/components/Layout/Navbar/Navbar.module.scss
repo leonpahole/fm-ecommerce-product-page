@@ -18,7 +18,11 @@
   justify-content: space-between;
   align-items: center;
 
-  border-bottom: 1px solid colors.$grey-2;
+  border-bottom: none;
+
+  @include breakpoints.lg {
+    border-bottom: 1px solid colors.$grey-2;
+  }
 
   .left {
     display: flex;

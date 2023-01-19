@@ -25,18 +25,22 @@ export namespace ProductApi {
       {
         fullSize: ProductImage1,
         thumbnail: ProductThumbnail1,
+        alt: "Front shot of the product, white sneakers on orange background",
       },
       {
         fullSize: ProductImage2,
         thumbnail: ProductThumbnail2,
+        alt: "Top-down shot of the product, white sneakers on orange background",
       },
       {
         fullSize: ProductImage3,
         thumbnail: ProductThumbnail3,
+        alt: "Side shot of the product, white sneakers on orange background",
       },
       {
         fullSize: ProductImage4,
         thumbnail: ProductThumbnail4,
+        alt: "Profile shot of the product, white sneakers on orange background",
       },
     ],
   };

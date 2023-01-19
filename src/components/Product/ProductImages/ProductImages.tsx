@@ -9,7 +9,10 @@ interface IProps {
 export const ProductImages = ({ product }: IProps) => {
   return (
     <div className={styles.imagesWrapper}>
-      <AppImageDisplay images={product.images} />
+      <AppImageDisplay
+        images={product.images}
+        popupContentLabel={`Images of ${product.name}`}
+      />
     </div>
   );
 };

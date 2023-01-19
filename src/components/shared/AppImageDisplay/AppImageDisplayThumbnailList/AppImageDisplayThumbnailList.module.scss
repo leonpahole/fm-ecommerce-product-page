@@ -1,0 +1,35 @@
+@use "../../../../styles/theme/typography.scss";
+@use "../../../../styles/theme/colors.scss";
+@use "../../../../styles/theme/sizes.scss";
+@use "../../../../styles/theme/breakpoints.scss";
+
+.thumbnailList {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+
+  .thumbnailWrapper {
+    position: relative;
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    background-color: white;
+
+    overflow: hidden;
+
+    &:not(.selected):hover {
+      opacity: 0.5;
+    }
+
+    &.selected {
+      border: 2px solid colors.$primary;
+
+      .thumbnail {
+        opacity: 0.3;
+      }
+    }
+  }
+}

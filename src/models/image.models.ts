@@ -4,5 +4,6 @@ export namespace ImageModels {
   export interface Image {
     thumbnail: StaticImageData;
     fullSize: StaticImageData;
+    alt: string;
   }
 }

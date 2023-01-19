@@ -1,6 +1,13 @@
 @use "../../../styles/theme/typography.scss";
 @use "../../../styles/theme/colors.scss";
+@use "../../../styles/theme/sizes.scss";
+@use "../../../styles/theme/breakpoints.scss";
 
 .imagesWrapper {
   flex: 1;
+  width: 100%;
+
+  @include breakpoints.lg {
+    max-width: sizes.px(445);
+  }
 }

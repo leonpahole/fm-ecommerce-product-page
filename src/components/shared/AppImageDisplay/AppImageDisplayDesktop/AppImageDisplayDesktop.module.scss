@@ -1,0 +1,25 @@
+@use "../../../../styles/theme/breakpoints.scss";
+
+.wrapper {
+  display: none;
+
+  @include breakpoints.lg {
+    display: initial;
+  }
+
+  .primaryImageWrapper {
+    width: 100%;
+    position: relative;
+    aspect-ratio: 1;
+
+    .primaryImage {
+      object-fit: cover;
+      border-radius: 15px;
+    }
+  }
+
+  .thumbnailList {
+    margin-top: 32px;
+    display: flex;
+  }
+}

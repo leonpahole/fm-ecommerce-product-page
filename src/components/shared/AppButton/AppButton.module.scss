@@ -23,5 +23,10 @@
   &:disabled {
     background-color: colors.$grey-3;
     box-shadow: 0px 20px 50px -20px colors.$grey-3;
+    pointer-events: none;
+  }
+
+  &:hover {
+    opacity: 0.5;
   }
 }

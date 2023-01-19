@@ -1,8 +1,16 @@
 @use "../../../styles/theme/typography.scss";
 @use "../../../styles/theme/colors.scss";
+@use "../../../styles/theme/sizes.scss";
+@use "../../../styles/theme/breakpoints.scss";
 
 .infoWrapper {
   flex: 1;
+  padding: 0 24px;
+
+  @include breakpoints.lg {
+    max-width: sizes.px(445);
+    padding: 0;
+  }
 
   .company {
     @include typography.text(13, 16, 700);
