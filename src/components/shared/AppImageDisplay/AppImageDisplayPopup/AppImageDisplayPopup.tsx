@@ -2,6 +2,7 @@ import { ImageModels } from "@/models/image.models";
 import Modal from "react-modal";
 import Image from "next/image";
 import { pxToRem } from "@/utils/breakpoints";
+import CloseIcon from "public/icon-close-white.svg";
 import styles from "./AppImageDisplayPopup.module.scss";
 import { AppImageDisplayThumbnailList } from "../AppImageDisplayThumbnailList/AppImageDisplayThumbnailList";
 import { AppImageDisplayArrows } from "../AppImageDisplayArrows/AppImageDisplayArrows";
@@ -32,6 +33,14 @@ export const AppImageDisplayPopup = ({
       overlayClassName={styles.overlay}
     >
       <div className={styles.wrapper}>
+        <button
+          type="button"
+          onClick={onClose}
+          className={styles.closeButton}
+          aria-label="Close popup"
+        >
+          <Image src={CloseIcon} alt="" />
+        </button>
         <div className={styles.selectedImageWrapper}>
           <Image
             src={images[selectedImageIndex].fullSize}

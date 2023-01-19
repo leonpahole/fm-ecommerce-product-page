@@ -26,6 +26,14 @@
     position: absolute;
 
     .wrapper {
+      display: flex;
+      flex-direction: column;
+
+      .closeButton {
+        align-self: flex-end;
+        margin-bottom: 24px;
+      }
+
       .selectedImageWrapper {
         width: sizes.px(550);
         aspect-ratio: 1;
