@@ -13,32 +13,62 @@
   }
 
   .company {
-    @include typography.text(13, 16, 700);
+    @include typography.text(12, 15, 700);
+
+    @include breakpoints.lg {
+      @include typography.text(13, 16, 700);
+    }
+
     letter-spacing: 2px;
     text-transform: uppercase;
     color: colors.$primary;
   }
 
   .name {
-    @include typography.text(44, 48, 700);
-    margin-top: 27px;
+    @include typography.text(28, 32, 700);
+    margin-top: 19px;
+
+    @include breakpoints.lg {
+      @include typography.text(44, 48, 700);
+      margin-top: 27px;
+    }
+
     color: colors.$dark-1;
   }
 
   .description {
-    @include typography.text(16, 26, 400);
-    margin-top: 32px;
     color: colors.$grey-1;
+
+    @include typography.text(15, 25, 400);
+    margin-top: 15px;
+
+    @include breakpoints.lg {
+      @include typography.text(16, 26, 400);
+      margin-top: 32px;
+    }
   }
 
   .priceWrapper {
-    margin-top: 28px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 24px;
+    @include breakpoints.lg {
+      margin-top: 28px;
+      flex-direction: column;
+    }
 
     .currentPriceWrapper {
       display: flex;
 
       .currentPrice {
-        @include typography.text(28, 26, 700);
+        @include typography.text(28, 35, 700);
+        @include breakpoints.lg {
+          @include typography.text(28, 26, 700);
+        }
+
         color: colors.$dark-1;
 
         margin-right: 16px;
@@ -56,7 +86,10 @@
     }
 
     .originalPrice {
-      margin-top: 10px;
+      @include breakpoints.lg {
+        margin-top: 10px;
+      }
+
       text-decoration: line-through;
 
       color: colors.$grey-3;
@@ -69,10 +102,22 @@
     margin-top: 32px;
     display: flex;
     gap: 16px;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    @include breakpoints.sm {
+      flex-direction: row;
+    }
 
     .quantityInput {
       flex-shrink: 0;
       width: auto;
+    }
+
+    .addToCartButton {
+      width: auto;
+      flex-shrink: 0;
+      flex-grow: 1;
     }
   }
 }

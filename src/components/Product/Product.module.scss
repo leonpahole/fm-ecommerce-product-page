@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
 
   @include breakpoints.lg {
     flex-direction: row;
