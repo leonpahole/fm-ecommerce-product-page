@@ -41,14 +41,28 @@ export const AppImageDisplayPopup = ({
         >
           <Image src={CloseIcon} alt="" />
         </button>
-        <div className={styles.selectedImageWrapper}>
-          <Image
-            src={images[selectedImageIndex].fullSize}
-            alt={images[selectedImageIndex].alt}
-            fill
-            sizes={`${pxToRem(550)}rem`}
-            className={styles.selectedImage}
-          />
+        <div className={styles.imagesAndButtonsWrapper}>
+          <div className={styles.imagesWrapper}>
+            {images.map((image, index) => (
+              <div
+                key={image.fullSize.src}
+                className={styles.imageWrapper}
+                style={{
+                  transform: `translateX(${
+                    (index - selectedImageIndex) * 100
+                  }%)`,
+                }}
+              >
+                <Image
+                  src={images[selectedImageIndex].fullSize}
+                  alt={images[selectedImageIndex].alt}
+                  fill
+                  sizes={`${pxToRem(550)}rem`}
+                  className={styles.image}
+                />
+              </div>
+            ))}
+          </div>
 
           <AppImageDisplayArrows
             left={{

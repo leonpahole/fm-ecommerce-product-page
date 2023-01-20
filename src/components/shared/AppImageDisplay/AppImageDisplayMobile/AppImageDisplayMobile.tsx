@@ -16,13 +16,23 @@ export const AppImageDisplayMobile = ({
 }: IProps) => {
   return (
     <div className={styles.wrapper}>
-      <Image
-        src={images[selectedImageIndex].fullSize}
-        alt={images[selectedImageIndex].alt}
-        fill
-        className={styles.primaryImage}
-        sizes="100vw"
-      />
+      {images.map((image, index) => (
+        <div
+          key={image.fullSize.src}
+          className={styles.imageWrapper}
+          style={{
+            transform: `translateX(${(index - selectedImageIndex) * 100}%)`,
+          }}
+        >
+          <Image
+            src={image.fullSize}
+            alt={image.alt}
+            fill
+            className={styles.image}
+            sizes="100vw"
+          />
+        </div>
+      ))}
       <AppImageDisplayArrows
         left={{
           onClick: () => onImageSelect(selectedImageIndex - 1),
