@@ -21,6 +21,7 @@ export const AppImageDisplayThumbnailList = ({
     <div className={clsx(styles.thumbnailList, className)}>
       {images.map((image, index) => (
         <button
+          key={image.fullSize.src}
           type="button"
           onClick={() => onImageSelect(index)}
           className={clsx(styles.thumbnailWrapper, {
