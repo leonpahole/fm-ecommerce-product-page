@@ -1,0 +1,19 @@
+@use "../../../../../styles/theme/typography.scss";
+@use "../../../../../styles/theme/colors.scss";
+
+.content {
+  flex: 1;
+
+  padding: 24px;
+  padding-bottom: 32px;
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .checkoutBtn {
+    margin-top: 24px;
+  }
+}

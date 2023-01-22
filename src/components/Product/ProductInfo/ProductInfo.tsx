@@ -10,14 +10,11 @@ const MaxProductsInCart = 20;
 
 interface IProps {
   product: ProductModels.Product;
+  onAddToCart(quantity: number): void;
 }
 
-export const ProductInfo = ({ product }: IProps) => {
+export const ProductInfo = ({ product, onAddToCart }: IProps) => {
   const [quantity, setQuantity] = useState<number>(0);
-
-  const priceWithCurrency = (price: number) => {
-    return `${product.currency}${price.toFixed(2)}`;
-  };
 
   return (
     <div className={styles.infoWrapper}>
@@ -27,7 +24,10 @@ export const ProductInfo = ({ product }: IProps) => {
       <div className={styles.priceWrapper}>
         <div className={styles.currentPriceWrapper}>
           <p className={styles.currentPrice}>
-            {priceWithCurrency(product.currentPrice)}
+            {ProductModels.priceWithCurrency(
+              product.currency,
+              product.currentPrice
+            )}
           </p>
           {product.discount && (
             <p className={styles.discountPercent}>
@@ -37,7 +37,12 @@ export const ProductInfo = ({ product }: IProps) => {
         </div>
         {product.discount && (
           <p className={styles.originalPrice}>
-            <s>{priceWithCurrency(product.discount.originalPrice)}</s>
+            <s>
+              {ProductModels.priceWithCurrency(
+                product.currency,
+                product.discount.originalPrice
+              )}
+            </s>
           </p>
         )}
       </div>
@@ -53,6 +58,10 @@ export const ProductInfo = ({ product }: IProps) => {
           type="button"
           disabled={quantity === 0}
           className={styles.addToCartButton}
+          onClick={() => {
+            onAddToCart(quantity);
+            setQuantity(0);
+          }}
         >
           <Image src={CartIcon} alt="" />
           <span>Add to cart</span>

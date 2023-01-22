@@ -1,0 +1,14 @@
+@use "../../../../../styles/theme/typography.scss";
+@use "../../../../../styles/theme/colors.scss";
+
+.content {
+  flex: 1;
+
+  padding: 24px;
+  color: colors.$grey-1;
+  @include typography.text(16, 26, 700);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

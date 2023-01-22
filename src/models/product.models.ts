@@ -14,4 +14,13 @@ export namespace ProductModels {
     } | null;
     images: ImageModels.Image[];
   }
+
+  export interface ProductWithQuantity {
+    product: Product;
+    quantity: number;
+  }
+
+  export const priceWithCurrency = (currency: string, price: number) => {
+    return `${currency}${price.toFixed(2)}`;
+  };
 }

@@ -1,0 +1,31 @@
+@use "../../../../../../styles/theme/typography.scss";
+@use "../../../../../../styles/theme/colors.scss";
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .left {
+    display: flex;
+    align-items: center;
+
+    .img {
+      display: block;
+      margin-right: 16px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+
+    .info {
+      @include typography.text(16, 26, 400);
+      color: colors.$grey-1;
+
+      .totalPrice {
+        margin-left: 6px;
+        color: colors.$dark-1;
+        font-weight: 700;
+      }
+    }
+  }
+}

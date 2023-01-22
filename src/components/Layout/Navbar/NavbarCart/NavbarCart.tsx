@@ -1,43 +1,25 @@
 import Image from "next/image";
-import { usePopper } from "react-popper";
 import CartIcon from "public/icon-cart.svg";
-import clsx from "clsx";
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import styles from "./NavbarCart.module.scss";
+import { INavbarCartPopperProps } from "./NavbarCartPopper/NavbarCartPopper";
+
+const NavbarCartPopper = dynamic<INavbarCartPopperProps>(
+  () =>
+    import("./NavbarCartPopper/NavbarCartPopper").then(
+      (mod) => mod.NavbarCartPopper
+    ),
+  {
+    ssr: false,
+  }
+);
 
 export const NavbarCart = () => {
-  const [referenceElement, setReferenceElement] =
-    useState<HTMLButtonElement | null>(null);
-
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+  const [popperButton, setPopperButton] = useState<HTMLButtonElement | null>(
     null
   );
-
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const { styles: popperStyles, attributes } = usePopper(
-    referenceElement,
-    popperElement,
-    {
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 30],
-          },
-        },
-        {
-          name: "preventOverflow",
-          options: {
-            padding: {
-              right: 24,
-              left: 24,
-            },
-          },
-        },
-      ],
-    }
-  );
 
   return (
     <>
@@ -45,25 +27,12 @@ export const NavbarCart = () => {
         className={styles.button}
         type="button"
         aria-label="Go to cart"
-        ref={setReferenceElement}
+        ref={setPopperButton}
         onClick={() => setIsOpen((o) => !o)}
       >
         <Image src={CartIcon} alt="" className={styles.cartImg} />
       </button>
-      <div
-        ref={setPopperElement}
-        style={popperStyles.popper}
-        className={clsx(styles.cartWrapper, { [styles.open]: isOpen })}
-        aria-hidden={!isOpen}
-        {...attributes.popper}
-      >
-        <div className={styles.heading}>
-          <p>Cart</p>
-        </div>
-        <div className={styles.content}>
-          <p>Your cart is empty.</p>
-        </div>
-      </div>
+      <NavbarCartPopper isOpen={isOpen} referenceElement={popperButton} />
     </>
   );
 };
