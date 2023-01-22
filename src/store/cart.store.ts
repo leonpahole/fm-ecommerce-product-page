@@ -51,3 +51,8 @@ type ICartStorePersist = (
 export const useCartStore = create<ICartStore>(
   (persist as ICartStorePersist)(store, { name: "cart-storage" })
 );
+
+export const useCartStoreTotalProducts = (): number => {
+  const { products } = useCartStore();
+  return products.reduce((q, p) => q + p.quantity, 0);
+};

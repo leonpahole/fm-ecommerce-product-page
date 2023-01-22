@@ -3,6 +3,21 @@
 @use "../../../../styles/theme/breakpoints.scss";
 @use "../../../../styles/theme/colors.scss";
 
-.button {
-  padding: 8px;
+.buttonWrapper {
+  position: relative;
+
+  .badge {
+    @include typography.text(10, 12, 700);
+    padding: 3px 6px 0 6px;
+    color: colors.$white;
+    background-color: colors.$primary;
+
+    position: absolute;
+    border-radius: 6.5px;
+    right: 0;
+  }
+
+  .button {
+    padding: 8px;
+  }
 }
