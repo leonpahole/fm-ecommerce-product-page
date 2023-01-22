@@ -1,7 +1,7 @@
 import Image from "next/image";
 import CartIcon from "public/icon-cart.svg";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import styles from "./NavbarCart.module.scss";
 import { INavbarCartPopperProps } from "./NavbarCartPopper/NavbarCartPopper";
 
@@ -21,6 +21,10 @@ export const NavbarCart = () => {
   );
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  const onClose = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
   return (
     <>
       <button
@@ -32,7 +36,11 @@ export const NavbarCart = () => {
       >
         <Image src={CartIcon} alt="" className={styles.cartImg} />
       </button>
-      <NavbarCartPopper isOpen={isOpen} referenceElement={popperButton} />
+      <NavbarCartPopper
+        isOpen={isOpen}
+        onClose={onClose}
+        referenceElement={popperButton}
+      />
     </>
   );
 };
