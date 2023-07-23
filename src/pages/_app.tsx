@@ -2,10 +2,12 @@ import type { AppProps } from "next/app";
 import { kumbhSansFont } from "@/utils/font-family.utils";
 import Modal from "react-modal";
 import "@/styles/index.scss";
+import dynamic from "next/dynamic";
+import React from "react";
 
 Modal.setAppElement("#modals");
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <>
       {/* eslint-disable-next-line react/no-unknown-property */}
@@ -26,3 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
+
+export default dynamic(() => Promise.resolve(App), {
+  ssr: false,
+});
