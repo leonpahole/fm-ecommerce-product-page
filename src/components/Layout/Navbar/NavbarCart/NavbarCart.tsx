@@ -1,20 +1,9 @@
 import Image from "next/image";
 import CartIcon from "public/icon-cart.svg";
-import dynamic from "next/dynamic";
 import { useCartStoreTotalProducts } from "@/store/cart.store";
 import { useCallback, useEffect, useState } from "react";
 import styles from "./NavbarCart.module.scss";
-import { INavbarCartPopperProps } from "./NavbarCartPopper/NavbarCartPopper";
-
-const NavbarCartPopper = dynamic<INavbarCartPopperProps>(
-  () =>
-    import("./NavbarCartPopper/NavbarCartPopper").then(
-      (mod) => mod.NavbarCartPopper
-    ),
-  {
-    ssr: false,
-  }
-);
+import { NavbarCartPopper } from "./NavbarCartPopper/NavbarCartPopper";
 
 export const NavbarCart = () => {
   const [popperButton, setPopperButton] = useState<HTMLButtonElement | null>(
