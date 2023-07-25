@@ -1,10 +1,20 @@
 import { ImageModels } from "@/models/image.models";
+import { Breakpoints, pxToRem } from "@/utils/breakpoints";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState } from "react";
-import { Breakpoints, pxToRem } from "@/utils/breakpoints";
-import styles from "./AppImageDisplayDesktop.module.scss";
 import { AppImageDisplayThumbnailList } from "../AppImageDisplayThumbnailList/AppImageDisplayThumbnailList";
-import { AppImageDisplayPopup } from "../AppImageDisplayPopup/AppImageDisplayPopup";
+import styles from "./AppImageDisplayDesktop.module.scss";
+
+const AppImageDisplayPopup = dynamic(
+  () =>
+    import("../AppImageDisplayPopup/AppImageDisplayPopup").then(
+      (mod) => mod.AppImageDisplayPopup
+    ),
+  {
+    ssr: false,
+  }
+);
 
 interface IProps {
   images: ImageModels.Image[];
